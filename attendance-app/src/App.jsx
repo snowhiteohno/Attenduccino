@@ -7,8 +7,6 @@ function App() {
   const [selectedId, setSelectedId] = useState(null);
   const [showLow, setShowLow] = useState(false);
   const [sortOn, setSortOn] = useState(false);
-
-  // Fetch students from API on first render
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
@@ -22,7 +20,6 @@ function App() {
       });
   }, []);
 
-  // Filter students
   let filtered = students;
 
   if (filter === 'present') filtered = filtered.filter(s => s.attendance >= 75);
