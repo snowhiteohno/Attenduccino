@@ -1,7 +1,27 @@
+/* ============================================
+   Google Font Import
+   We use 'DM Sans' as the main font for the app.
+   ============================================ */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ============================================
+   Global Reset
+   Remove default margins and padding from all elements.
+   Use border-box so padding is included in width/height.
+   ============================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ============================================
+   Body Styles
+   Sets the font, background color, text color,
+   and makes the page at least full-screen tall.
+   ============================================ */
 body {
   font-family: 'DM Sans', sans-serif;
   background: #fdf6f0;
@@ -9,12 +29,21 @@ body {
   min-height: 100vh;
 }
 
+
+/* ============================================
+   App Container
+   Centers the app and adds some spacing.
+   ============================================ */
 .app {
   max-width: 650px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
+
+/* ============================================
+   Title and Subtitle
+   ============================================ */
 h1 {
   font-size: 36px;
   text-align: center;
@@ -27,7 +56,11 @@ h1 {
   margin-bottom: 24px;
 }
 
-/* Filters */
+
+/* ============================================
+   Filter Buttons (All / Present / Absent)
+   Displayed in a row, centered.
+   ============================================ */
 .filters {
   display: flex;
   gap: 8px;
@@ -45,13 +78,17 @@ h1 {
   font-size: 13px;
 }
 
+/* The active filter button gets a pink background */
 .filters button.active {
   background: #c9768e;
   color: white;
   border-color: #c9768e;
 }
 
-/* Toggles */
+
+/* ============================================
+   Toggle Checkboxes (Show <75%, Sort by %)
+   ============================================ */
 .toggles {
   display: flex;
   gap: 20px;
@@ -68,13 +105,22 @@ h1 {
   cursor: pointer;
 }
 
-/* Student List */
+
+/* ============================================
+   Student List Container
+   Stacks student rows vertically with small gaps.
+   ============================================ */
 .student-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
+
+/* ============================================
+   Individual Student Row
+   A white card with rounded corners.
+   ============================================ */
 .student-row {
   display: flex;
   align-items: center;
@@ -87,34 +133,69 @@ h1 {
   transition: all 0.15s;
 }
 
+/* Subtle shadow on hover */
 .student-row:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
-/* Green / Red coloring */
-.student-row.green { border-left: 4px solid #a8d5a0; }
-.student-row.red   { border-left: 4px solid #e8aaaa; }
 
-/* Selected row */
+/* ============================================
+   Color Coding (left border)
+   Green = attendance >= 75%
+   Red   = attendance <  75%
+   ============================================ */
+.student-row.green {
+  border-left: 4px solid #a8d5a0;
+}
+
+.student-row.red {
+  border-left: 4px solid #e8aaaa;
+}
+
+
+/* ============================================
+   Selected Row (clicked by the user)
+   Gets a pink background and border highlight.
+   ============================================ */
 .student-row.selected {
   background: #f5e6e8;
   border-color: #c9768e;
-  box-shadow: 0 0 0 2px rgba(201,118,142,0.2);
+  box-shadow: 0 0 0 2px rgba(201, 118, 142, 0.2);
 }
 
-.name { font-weight: 500; flex: 1; }
 
+/* ============================================
+   Student Name, Percentage, and Badge
+   ============================================ */
+
+/* Student name takes up the remaining space */
+.name {
+  font-weight: 500;
+  flex: 1;
+}
+
+/* Attendance percentage number */
 .pct {
   font-size: 18px;
   font-weight: 600;
   margin: 0 12px;
 }
 
+/* Badge (small pill showing Present/Absent) */
 .badge {
   font-size: 12px;
   padding: 4px 10px;
   border-radius: 12px;
 }
 
-.badge-green { background: #dff0da; color: #4a7c43; }
-.badge-red   { background: #fef5f5; color: #a04040; }
+/* Green badge for Present students */
+.badge-green {
+  background: #dff0da;
+  color: #4a7c43;
+}
+
+/* Red badge for Absent students */
+.badge-red {
+  background: #fef5f5;
+  color: #a04040;
+}
